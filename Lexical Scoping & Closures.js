@@ -19,6 +19,15 @@ function outer(){
 
 outer();
 
+// --------------------------------
+var user="allan"
+if(true){
+    var user="joston"
+    console.log(user);
+}
+console.log(user);
+// OUTPUT: joston joston
+
 
 
 
@@ -28,12 +37,11 @@ outer();
 function makeFunc() {
     const name = "Mozilla";
     function displayName() {
-      console.log(name);
+        console.log(name);
     }
     return displayName;
-  }
-  
-  const myFunc = makeFunc(); //passes the lexical scope of the function
-  myFunc(); //executes the function
-  console.log(myFunc);//gives the name of the function and not the execution of the function
-  
+    }
+    
+    const myFunc = makeFunc(); //passes the lexical scope of the function
+    myFunc(); //executes the function
+    console.log(myFunc);//gives the name of the function and not the execution of the function
