@@ -29,7 +29,7 @@ let promise1 = new Promise((resolve, reject) => {
     let promisesResolved = 0;
     return new Promise((resolve, reject) => {
       try {
-        promises.forEach(async (promise, index) => {
+        promises.forEach(async (promise) => {
           const response = await promise;
           promisesResolved += 1;
           output.push(response);
@@ -46,3 +46,7 @@ let promise1 = new Promise((resolve, reject) => {
   myAll(arr).then((res) => {
     console.log(res);
   });
+
+  const res=Promise.all(arr);
+  res.then((val) => console.log(val));
+  // console.log(res);
