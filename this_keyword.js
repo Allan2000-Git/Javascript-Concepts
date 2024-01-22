@@ -4,7 +4,10 @@ var a=10;
 console.log(this.a); // 10
 
 function log(){
+    // value of 'this' depends on strict / non-strict mode
     console.log(this); // window object
+    // strict => undefined
+    // non-strict => window object (this subtitution, so it points to window object)
 }
 log()
 
