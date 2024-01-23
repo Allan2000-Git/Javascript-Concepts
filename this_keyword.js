@@ -27,7 +27,7 @@ const fullName = user.printName
 fullName() // window
 
 // *** this keyword depends on how the function is called ***
-// arrow function: this keyword doesn't have a context. it takes its parent context
+// arrow function: this keyword doesn't have a context. it takes its parent context or enclosing lexical context
 
 
 const newUser = {
@@ -42,3 +42,6 @@ const newUser = {
 }
 
 newUser.printName()
+
+
+// this inside DOM => elements which calls it (references to HTML element)
