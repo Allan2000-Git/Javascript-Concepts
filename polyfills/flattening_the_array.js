@@ -24,3 +24,11 @@ console.log("Before: ", arr);
 console.log("After using built-in flat method: ", arr.flat());
 console.log("After using flat polyfill: ", flatArray([1, 2, [3, [7]], 4], Infinity));
 
+
+// method-2
+const flatten = (arr) => {
+    return arr.reduce((acc, currVal) => {
+        return acc.concat(Array.isArray(currVal) ? flatten(currVal) : currVal);
+    }, []);
+}
+

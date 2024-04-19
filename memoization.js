@@ -14,12 +14,12 @@ console.timeEnd();
 const memoizedFunction = (func) => {
     let cache = {};
     return function(...args){
-        let n = args[0];
-        if(n in cache){
-            return cache[n];
+        // let n = args[0];
+        if(args in cache){
+            return cache[args];
         }else{
-            let value = func(n);
-            cache[n] = value;
+            let value = func(args);
+            cache[args] = value;
             return value;
         }
     }
