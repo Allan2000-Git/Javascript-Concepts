@@ -38,6 +38,21 @@ function Addition(a){
     }
 }
 
+// Approach 2
+function sum(x) {
+    let currentSum = x;
+
+    function innerSum(y) {
+        if (y === undefined) {
+            return currentSum;
+        } else {
+            currentSum += y;
+            return innerSum;
+        }
+    }
+    return innerSum;
+}
+
 const res = Addition(2)(3)(4)();
 console.log(res);
 

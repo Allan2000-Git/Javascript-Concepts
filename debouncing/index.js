@@ -8,15 +8,19 @@ const getData = () =>{
     console.log("Fetching data...", counter++);
 }
 
-const debounce = (fn, delay) => {
-    let timer;
-    return function(...args){
-        let context=this;
-        clearTimeout(timer);
-        timer = setTimeout(()=>{
-            fn.apply(context, args);
-        }, delay)
-    }
+const debounce = (func, delay) => {
+    let timeoutID = null;
+    return function (...args) {
+        clearTimeout(timeoutID);
+        timeoutID = setTimeout(() => {
+            timeoutID = null;
+            func.apply(this, args);
+        }, delay);
+    };
 }
 
 const betterFunction = debounce(getData, 300); // each time called, it creates a copy of the function and clears the timer
+
+// 1. Debouncing is a programming technique that helps to improve the performance of web applications by limiting the frequency of function calls.
+// 2. Debouncing is a way of delaying the execution of a function until a certain amount of time has passed since the last time it was called. 
+// This can be useful for scenarios where we want to avoid unnecessary or repeated function calls that might be expensive or time-consuming.
