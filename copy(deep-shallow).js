@@ -59,3 +59,23 @@ console.log(obj1);
 console.log(obj2);
 
 // deep copy doesnt work incase of functions
+
+// custom deep clone function
+function deepCopy(obj) {
+    const result = {};
+
+    if (typeof obj !== "object" ||
+        typeof obj === undefined ||
+        obj === null ||
+        Array.isArray(obj) ||
+        typeof obj == "function") {
+        return obj;
+    }
+
+    const keys = Object.keys(obj);
+
+    for (let key in keys) {
+        result[keys[key]] = deepCopy(obj[keys[key]])
+    }
+    return result;
+}
