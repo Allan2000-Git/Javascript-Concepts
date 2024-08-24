@@ -26,9 +26,22 @@ console.log("After using flat polyfill: ", flatArray([1, 2, [3, [7]], 4], Infini
 
 
 // method-2
-const flatten = (arr) => {
+const flatten2 = (arr) => {
     return arr.reduce((acc, currVal) => {
         return acc.concat(Array.isArray(currVal) ? flatten(currVal) : currVal);
     }, []);
 }
+
+// method-3
+const flatten3 = (arr) => {
+    const result = [];
+    arr.forEach((item) => {
+        if (Array.isArray(item)) {
+            result.push(...flatten3(item));
+        } else {
+            result.push(item);
+        }
+    });
+    return result;
+};
 
