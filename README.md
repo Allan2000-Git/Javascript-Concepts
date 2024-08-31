@@ -16,6 +16,9 @@ Welcome to the JavaScript Promises and Lexical Scoping with Closures repository!
 
 3. **Polyfills**
 4. **Debouncing & Throttling**
+5. **Higher Order Functions**
+6. **Web Optimizations**
+7. **IIFE**
 
 ## Getting Started
 
