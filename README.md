@@ -14,6 +14,9 @@ Welcome to the JavaScript Promises and Lexical Scoping with Closures repository!
    - Understand how JavaScript manages variable scope.
    - Practical exercises to reinforce your knowledge.
 
+3. **Polyfills**
+4. **Debouncing & Throttling**
+
 ## Getting Started
 
 1. Clone this repository to your local machine:
