@@ -21,30 +21,20 @@ function debounce(cb, delay = 1000) {
     }
 }
 
-function throttle(cb, delay = 1000) {
-    let shouldWait = false
-    let waitingArgs
-    const timeoutFunc = () => {
-        if (waitingArgs == null) {
-            shouldWait = false
-        } else {
-            cb(...waitingArgs)
-            waitingArgs = null
-            setTimeout(timeoutFunc, delay)
-        }
+function throttle(func, delay = 1000) {
+  let isCalled = false;
+  let timer;
+
+  return function(...args){
+    if (!isCalled) {
+      func.apply(this, args);
+      isCalled = true;
+      clearTimeout(timer);
+      timer = setTimeout(() => {
+        isCalled = false;
+      }, delay);
     }
-
-    return (...args) => {
-        if (shouldWait) {
-        waitingArgs = args
-        return
-        }
-
-        cb(...args)
-        shouldWait = true
-
-        setTimeout(timeoutFunc, delay)
-    }
+  }
 }
 
 document.addEventListener("mousemove", e => {
