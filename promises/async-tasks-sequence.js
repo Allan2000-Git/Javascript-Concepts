@@ -1,4 +1,4 @@
-// Execute async tasks in Parallel
+// Execute async tasks in Sequence
 function createAsyncTask() {
     const value = Math.floor(Math.random() * 10);
 
