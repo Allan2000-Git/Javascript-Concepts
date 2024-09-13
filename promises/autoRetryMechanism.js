@@ -5,31 +5,32 @@
 
 function fetchWithAutoRetry(fetcher, maxRetryCount) {
   return new Promise((resolve, reject) => {
-    let retries = 0;
+    let numOfRetries = 0;
     const caller = () =>
       fetcher()
         .then((data) => {
           resolve(data);
         })
         .catch((error) => {
-          if (retries < maxRetryCount) {
-            retries++;
+          if (numOfRetries < maxRetryCount) {
+            numOfRetries += 1;
             caller();
           } else {
             reject(error);
           }
         });
-    retries = 1;
+    
+    numOfRetries = 1;
     caller();
   });
 }
 
-const fetchSouravProfile = async () => {
-  console.log("Fetching..");
-  const rawResponse = await fetch("https://api.github.com/users/sourav-singhh");
-  const jsonResponse = await rawResponse.json();
-  console.log(jsonResponse);
-  return jsonResponse;
+const fetchAllanProfile = async () => {
+  console.log("Fetching...");
+  const response = await fetch("https://api.github.com/users/Allan2000-Git");
+  const data = await response.json();
+  console.log(data);
+  return data;
 };
 
-fetchWithAutoRetry(fetchSouravProfile, 5);
+fetchWithAutoRetry(fetchAllanProfile, 5);
