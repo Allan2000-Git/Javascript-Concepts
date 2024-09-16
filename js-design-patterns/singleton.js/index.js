@@ -24,7 +24,7 @@ let Singleton = (function () {
             return instance;
         }
     }
-}())
+})();
 
 let counter1 = Singleton.getInstance();
 let counter2 = Singleton.getInstance();
