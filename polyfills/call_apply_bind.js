@@ -1,3 +1,5 @@
+// The bind(), call(), and apply() methods are fundamental concept in JavaScript for controlling function execution contexts.
+
 let nameObj = { 
     name: "Tony"
 } 
