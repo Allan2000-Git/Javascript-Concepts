@@ -1,4 +1,4 @@
-# Critical Rendering Path
+# Critical Rendering Path: https://www.geeksforgeeks.org/critical-rendering-path-flow/
 - Process of converting the HTML, CSS and JS code into the pixels or displaying UI
 
 ## 5 steps in the process
