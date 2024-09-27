@@ -37,3 +37,23 @@ setTimeout(() => console.log(6));
 
 console.log(7);
 
+// ----------------------------------
+
+let arr = [0, 0, 0, 0, 0];
+for (var i = 0; i < arr.length - 1; i++) {
+  setTimeout(() => {
+      ++arr[i];
+      console.log(arr);
+  }, 1000 * i);  
+}
+
+// ------------------------------------
+
+let arr = [0, 0, 0, 0, 0];
+for (let i = 0; i < arr.length - 1; i++) {
+  setTimeout(() => {
+      ++arr[i];
+      console.log(arr);
+  }, 1000 * i);  
+}
+
