@@ -3,6 +3,9 @@
 - Different types of assets (stylesheets, images, js files) have different priority in which they're loaded and executed
 - We can assign priority to our assets also. But how?
 
+- https://www.debugbear.com/blog/resource-hints-rel-preload-prefetch-preconnect
+- https://dev.to/dave3130/optimize-website-load-performance-using-preload-prefetch-preconnect-3h7g
+
 ```
 <!-- PRELOADING STARTS -->
 <link rel="preload" as="script" href="script2.js">
