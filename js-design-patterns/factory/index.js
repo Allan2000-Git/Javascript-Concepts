@@ -1,6 +1,7 @@
 /*
     The factory pattern is a creational design pattern that uses factory methods to create objects — rather than by calling a constructor.
     The Factory Method allows the client to delegate object creation while still retaining control over which type to instantiate.
+    A function is a factory function when it returns a new object without the use of the new keyword!
 */
 
 function Developer(name){
