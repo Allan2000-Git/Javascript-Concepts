@@ -27,7 +27,7 @@ function Counter() {
 // In a singleton design pattern, only one object is created for each interface (class or function) 
 // and the same object is returned every time when called.
 
-let Singleton = (function () {
+let Singleton = (function () {  // immediate anonymous function
     let instance;
 
     return {
