@@ -34,6 +34,6 @@ proxy.gender = 3;
 
 console.log(proxy);
 
-
-// use cases such as intercepting, monitoring, alerting, etc.
+// Use-cases: it can help with 
+// - validation, formatting, notifications, debugging, intercepting, monitoring, alerting.
 // Overusing them can drastically hamper the performance of the application
