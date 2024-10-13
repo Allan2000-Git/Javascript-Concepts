@@ -79,3 +79,20 @@ function deepCopy(obj) {
     }
     return result;
 }
+
+function deepClone(obj) {
+    if (typeof obj !== "object" ||
+        typeof obj === undefined ||
+        obj === null ||
+        Array.isArray(obj) ||
+        typeof obj == "function") {
+        return obj;
+    }
+
+    const result = Array.isArray(obj) ? [] : {};
+
+    for (let key in obj) {
+        result[key] = deepClone(obj[key])
+    }
+    return result;
+}
