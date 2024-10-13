@@ -3,6 +3,10 @@
 
 // fetchWithAutoRetry(fetchNews,5)
 
+function wait(ms) {
+  return new Promise((res) => setTimeout(res, ms));
+}
+
 function fetchWithAutoRetry(fetcher, maxRetryCount) {
   return new Promise((resolve, reject) => {
     let numOfRetries = 0;
@@ -14,13 +18,18 @@ function fetchWithAutoRetry(fetcher, maxRetryCount) {
         .catch((error) => {
           if (numOfRetries < maxRetryCount) {
             numOfRetries += 1;
+            console.log(`Retrying... Attempt ${numOfRetries}`);
+
+            // Optional: Adding a delay before retrying
+            await wait(1000);
+            
             caller();
           } else {
             reject(error);
           }
         });
     
-    numOfRetries = 1;
+    // numOfRetries = 1;
     caller();
   });
 }
