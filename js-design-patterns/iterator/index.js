@@ -7,6 +7,12 @@ function createIterator(collection){
             }
             
             return {value: null, done: true};
+        },
+        hasNext: function() {
+            return i < collection.length;
+        },
+        first: function() {
+            return collection[0];
         }
     }
 };
