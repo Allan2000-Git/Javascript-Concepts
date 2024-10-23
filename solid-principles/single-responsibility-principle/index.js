@@ -1,5 +1,7 @@
 /*
 A class or a module should have only one reason to change
+OR
+Each module should be responsible to one, and only one, actor (user or stakeholder)
 */
 
 class Product {
