@@ -1,5 +1,5 @@
 /*
-A class should have only one reason to change
+A class or a module should have only one reason to change
 */
 
 class Product {
