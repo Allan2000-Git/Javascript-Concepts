@@ -1,5 +1,8 @@
 // software entities must be (functions, classes) open for extension but closed for modification
 
+// Open for extension — we are able to extend what the module does.
+// Closed for modification — extending the behavior of a module does not result in changes to the source or binary code of the module.
+
 interface IPaymentProcessor {
     processPayment(amount: number): void;
 }
