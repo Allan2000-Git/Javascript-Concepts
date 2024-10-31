@@ -1,3 +1,4 @@
+// Same as pub/sub
 class Observer {
     constructor(){
         this.observers = [];
