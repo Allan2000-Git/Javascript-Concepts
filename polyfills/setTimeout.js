@@ -1,5 +1,5 @@
 function createSetTimeout() {
-    let timerId = 0;
+    let timerId = 1;
     let timerMap = {};
 
     function setTimeoutPolyfill(callback, delay, ...args) {
