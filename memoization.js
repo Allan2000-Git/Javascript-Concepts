@@ -25,6 +25,20 @@ const memoizedFunction = (func) => {
     }
 }
 
+function memoizedFunction(fn) {
+    const cache = {};
+    
+    return function(...args) {
+        const key = String(args);
+        if(key in cache) {
+            return cache[key];
+        }
+        const result = fn(...args);
+        cache[key] = result;
+        return result;
+    }
+}
+
 console.time();
 console.log(memoizedFunction(calculateSum)(5));
 console.timeEnd();
