@@ -11,6 +11,7 @@ console.time();
 console.log(calculateSum(5));
 console.timeEnd();
 
+// Closure with additional variable based memoization
 const memoizedFunction = (func) => {
     let cache = {};
     return function(...args){
