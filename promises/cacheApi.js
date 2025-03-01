@@ -7,8 +7,9 @@ function cacheApiCall(time) {
         if(!entry || Date.now() > entry.expiryTime) {
             console.log("making new api call");
             try {
-                const value = await makeApiCall(url, config)
-                cache[key] = { value, expiryTime: Date.now() + time };
+                const result = await fetch(url, config);
+                const response = await result.json();
+                cache[key] = { response, expiryTime: Date.now() + time };
             } catch(e) {
                 console.log(error);
             }
