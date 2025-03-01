@@ -9,7 +9,7 @@ function cacheApiCall(time) {
             try {
                 const result = await fetch(url, config);
                 const response = await result.json();
-                cache[key] = { response, expiryTime: Date.now() + time };
+                cache[key] = { value: response, expiryTime: Date.now() + time };
             } catch(e) {
                 console.log(error);
             }
