@@ -41,8 +41,7 @@ async function fetchWithAutoRetry(fetcher, maxRetryCount) {
 
   while (numOfRetries <= maxRetryCount) {
     try {
-      const data = await fetcher();
-      return data; // Return on success
+      return await fetcher();
     } catch (error) {
       numOfRetries++;
       if (numOfRetries > maxRetryCount) {
