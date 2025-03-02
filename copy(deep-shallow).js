@@ -61,25 +61,6 @@ console.log(obj2);
 // deep copy doesnt work incase of functions
 
 // custom deep clone function
-function deepCopy(obj) {
-    const result = {};
-
-    if (typeof obj !== "object" ||
-        typeof obj === undefined ||
-        obj === null ||
-        Array.isArray(obj) ||
-        typeof obj == "function") {
-        return obj;
-    }
-
-    const keys = Object.keys(obj);
-
-    for (let key in keys) {
-        result[keys[key]] = deepCopy(obj[keys[key]])
-    }
-    return result;
-}
-
 function deepClone(obj) {
     if (typeof obj !== "object" ||
         typeof obj === undefined ||
@@ -96,3 +77,29 @@ function deepClone(obj) {
     }
     return result;
 }
+
+// handles circular references
+function deepClone(obj, seen = new WeakMap()) {
+    if (typeof obj !== "object" || obj === null) {
+        return obj; // Return primitive values or null directly
+    }
+
+    if (seen.has(obj)) {
+        return seen.get(obj); // Handle circular reference
+    }
+
+    const result = Array.isArray(obj) ? [] : {};
+    seen.set(obj, result); // Mark current object as visited
+
+    for (let key in obj) {
+        if (obj.hasOwnProperty(key)) {
+            result[key] = deepClone(obj[key], seen); // Recursively clone properties
+        }
+    }
+
+    return result;
+}
+
+// TL;DR – When to Use WeakMap vs. Map
+// Use WeakMap when you want automatic cleanup (✅ best for deepClone).
+// Use Map when you need iteration or tracking over time.
