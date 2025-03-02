@@ -29,7 +29,7 @@ const asyncSequence = async (tasks, callback) => {
     let taskCompleted = 0;
     for (let task of tasks) {
         try {
-            let res = await task;
+            let res = await task();
             results.push(res);
         } catch (e) {
             errors.push(e);
