@@ -10,15 +10,15 @@ const updateThrottleText = throttle(() => {
     incrementCount(throttleText)
 }, 100)
 
-function debounce(cb, delay = 1000) {
-    let timeout
-
-    return (...args) => {
-        clearTimeout(timeout)
-        timeout = setTimeout(() => {
-            cb(...args)
-        }, delay)
-    }
+function debounce = (func, delay) => {
+    let timeoutID = null;
+    return function (...args) {
+        clearTimeout(timeoutID);
+        timeoutID = setTimeout(() => {
+            timeoutID = null;
+            func.apply(this, args);
+        }, delay);
+    };
 }
 
 function throttle(func, delay = 1000) {
